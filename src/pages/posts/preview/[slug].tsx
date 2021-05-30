@@ -33,16 +33,16 @@ export default function PostPreview({ post }: PostPreviewProps) {
   return (
     <>
       <Head>
-        <title>{post.title} | ig.news</title>
+        <title>{post?.title} | ig.news</title>
       </Head>
 
       <main className={styles.container}>
         <article className={styles.post}>
-          <h1>{post.title}</h1>
-          <time>{post.updatedAt}</time>
+          <h1>{post?.title}</h1>
+          <time>{post?.updatedAt}</time>
           <div
             className={`${styles.postContent} ${styles.previewContent}`}
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            dangerouslySetInnerHTML={{ __html: post?.content }}
           />
 
           <div className={styles.continueReading}>
@@ -59,7 +59,7 @@ export default function PostPreview({ post }: PostPreviewProps) {
 export const getStaticPaths = () => {
   return {
     paths: [],
-    fallback: 'blocking'
+    fallback: true
   }
 }
 
